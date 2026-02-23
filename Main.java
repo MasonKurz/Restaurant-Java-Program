@@ -1,13 +1,27 @@
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
 
-        Restaurant mcDonalds = new Restaurant();
-        Restaurant chipotle = new Restaurant(30, 4.5, 14, 5, "6:00am - 9:00pm");
+        // Instantiate an ArrayList to hold Restaurant Objects
+        ArrayList<Restaurant> restaurantList = new ArrayList<>();
 
-        System.out.println(chipotle.waitTime);
-        System.out.println(chipotle.hoursOpen);
-        System.out.println(chipotle.avgPrice);
-        System.out.println(chipotle.distance);
-        System.out.println(chipotle.hoursOpen);
+
+        // Take user input using JOptionPane and store in variable
+        String name = JOptionPane.showInputDialog("Enter Restaurant Name: ");
+        int waitTime = Integer.parseInt(JOptionPane.showInputDialog("Enter Restaurant Wait Time in Minutes (ex. 30): "));
+        double rating = Double.parseDouble(JOptionPane.showInputDialog("Enter Restaurant Rating (ex. 0.0 - 5.0): "));
+        double avgPrice = Double.parseDouble(JOptionPane.showInputDialog("Enter Restaurant Average Price (ex. 12.50): "));
+        double distance = Double.parseDouble(JOptionPane.showInputDialog("Enter Restaurant Distance In Miles (ex. 5.5): "));
+        String hoursOpen = JOptionPane.showInputDialog("Enter Hours of Operation (ex. 09:00am - 10:00pm): ");
+
+
+        // Instantiate Restaurant object with those variables
+        Restaurant userRestaurant = new Restaurant(name, waitTime, rating, avgPrice, distance, hoursOpen);
+        System.out.println(userRestaurant);
+
+        // Add User's Restaurant Object to the ArrayList
+        restaurantList.add(userRestaurant);
     }
 }
