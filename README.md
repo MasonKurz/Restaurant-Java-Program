@@ -21,3 +21,19 @@ Since our app is designed to allow people to create restaurants and enter data, 
 
 ### 4. toString()
 When we originally ran our program, it worked fine except when it came to printing the data. Instead of printing the data entered, it printed a word with a hash code. This is because Java doesn't understand we wanted the data entered to be printed as it was entered. We had to use the toString() function to avoid this. It basically goes to Java's code and makes it so that instead of printing an object with a hash code, it prints a neatly formatted String. In doing this, we could format the String the way we wanted to that it could print to the console neatly. 
+
+## 03/09 & 03/11 Changes
+Restaurants.txt File
+- We added a file to the source folder that had the formatted data we collected the previous week. This allows us to easily scan all of the data from the file and instantiate multiple objects from that data at once. This prevents us from needing to manually add restaurants to the program one by one.
+
+File and Scanner
+- In order to properly scan this data we needed to create a file object and a scanner object. The file is essentially an object that holds all the data we collected from the txt file. When we created the scanner, we were able to add the file as a parameter that would cause the new scanner to scan everything in the file. We needed to use a "while" loop to continuosly scan the data, that way it would scan the entire file and not just the first line.
+
+Add Restaurants to ArrayList
+- After using the data from the file to create numerous restaurants, the "while" loop was utilized to instantiate a restaurant object and add it immediately to the ArrayList. This means that when the loop (and scanner) is finished running, all the restaurants will already be added to the ArrayList.
+
+Print Random Restaurant
+- We created a seperate method that would print a random restaurant from the ArrayList. We did this by creating a random variable and used it to take the number of restaurants in the ArrayList (minus 1 because it starts at 0) and pick a random number from the list. This number would essentially point to which restaurant instance it wanted to print to the console.
+
+Organize Methods
+- To simplify the main method and improve readibility we created two seperate methods that had their own tasks. One method was created that was dedicated to the scanning and instantiation of the txt file while the other method was dedicated to printing a random restaurant from the ArrayList. This allowed us to call each method in the main method, helping with organization.
